@@ -3,8 +3,8 @@ import java.util.Map;
 
 public class GlobalAlignmentAlgorithm {
 
-    private String v;
-    private String w;
+    private final String v;
+    private final String w;
     private int[][] WEIGHTS;
     private int[][] BACKTRACKING;
     private static final int SIGMA = 5;
@@ -80,24 +80,6 @@ public class GlobalAlignmentAlgorithm {
         this.scoreMatrix = blosum62Loader.getMatrix();
         this.aminoAcids = blosum62Loader.getAminoAcids();
         this.aaToIndexMap = blosum62Loader.getAaToIndex();
-
-//        System.out.println("Amino Acids: " + aminoAcids);
-//        System.out.println("BLOSUM62 Matrix:");
-//        System.out.print("   ");
-//        for (String aa : aminoAcids) {
-//            System.out.printf("%4s", aa);
-//        }
-//        System.out.println();
-//
-//        for (int i = 0; i < scoreMatrix.length; i++) {
-//            System.out.printf("%2s ", aminoAcids.get(i));
-//            for (int j = 0; j < scoreMatrix[i].length; j++) {
-//                System.out.printf("%4d", scoreMatrix[i][j]);
-//            }
-//            System.out.println();
-//        }
-//
-//        System.out.println(this.aaToIndexMap);
     }
 
     private void alignIterative(StringBuilder sbv, StringBuilder sbw) {
