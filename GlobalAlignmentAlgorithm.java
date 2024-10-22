@@ -44,7 +44,7 @@ public class GlobalAlignmentAlgorithm {
 //        printMatrix(WEIGHTS);
 //        System.out.println("---------------------------------");
 //        printMatrix(BACKTRACKING);
-        System.out.println(WEIGHTS[v.length()][w.length()]);
+//        System.out.println(WEIGHTS[v.length()][w.length()]);
 
         StringBuilder sbv = new StringBuilder(v);
         StringBuilder sbw = new StringBuilder(w);
@@ -52,8 +52,8 @@ public class GlobalAlignmentAlgorithm {
 //        alignIterative(sbv, sbw);
         alignRecursive(sbv, sbw,v.length()-1, w.length()-1);
 
-        System.out.println(sbv);
-        System.out.println(sbw);
+//        System.out.println(sbv);
+//        System.out.println(sbw);
 
         return new Data(WEIGHTS[v.length()][w.length()] , sbv.toString(), sbw.toString());
     }

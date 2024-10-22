@@ -78,17 +78,17 @@ public class LocalAlignmentWithAffineGapAlgorithm {
             }
         }
 
-        System.out.println(MAXI + " " + MAXJ + " " + MAX_SCORE);
+//        System.out.println(MAXI + " " + MAXJ + " " + MAX_SCORE);
 
         int[] vi = {MAXI-1};
         int[] wi = {MAXJ-1};
         alignRecursive(MAXI-1, MAXJ-1, vi, wi);
 
-        System.out.println(vi[0] + " " + wi[0]);
-        System.out.println(v.substring(vi[0], MAXI));
-        System.out.println(w.substring(wi[0], MAXJ));
+//        System.out.println(vi[0] + " " + wi[0]);
+//        System.out.println(v.substring(vi[0], MAXI));
+//        System.out.println(w.substring(wi[0], MAXJ));
 
-        return new Data(-1, null, null);
+        return new Data(MAX_SCORE, v.substring(vi[0], MAXI), w.substring(wi[0], MAXJ));
     }
 
     private void initWeights() {
