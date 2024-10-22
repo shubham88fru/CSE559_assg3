@@ -60,13 +60,13 @@ public class LocalAlignmentWithAffineGapAlgorithm {
                 );
 
                 if (WEIGHTS_M[i][j] == 0) {
-                    BACKTRACKING[i-1][j-1] = 0;
+                    BACKTRACKING[i][j] = 0;
                 } else if (WEIGHTS_M[i][j] == in) {
-                    BACKTRACKING[i-1][j-1] = 1;
+                    BACKTRACKING[i][j] = 1;
                 } else if (WEIGHTS_M[i][j] == del) {
-                    BACKTRACKING[i-1][j-1] = 2;
+                    BACKTRACKING[i][j] = 2;
                 } else {
-                    BACKTRACKING[i-1][j-1] = 3;
+                    BACKTRACKING[i][j] = 3;
                 }
 
                 if (WEIGHTS_M[i][j] > MAX_SCORE) {
@@ -80,9 +80,9 @@ public class LocalAlignmentWithAffineGapAlgorithm {
 
 //        System.out.println(MAXI + " " + MAXJ + " " + MAX_SCORE);
 
-        int[] vi = {MAXI-1};
-        int[] wi = {MAXJ-1};
-        alignRecursive(MAXI-1, MAXJ-1, vi, wi);
+        int[] vi = {MAXI};
+        int[] wi = {MAXJ};
+        alignRecursive(MAXI, MAXJ, vi, wi);
 
 //        System.out.println(vi[0] + " " + wi[0]);
 //        System.out.println(v.substring(vi[0], MAXI));
@@ -120,7 +120,7 @@ public class LocalAlignmentWithAffineGapAlgorithm {
     }
 
     private void initBacktrack() {
-        BACKTRACKING = new int[v.length()][w.length()];
+        BACKTRACKING = new int[v.length()+1][w.length()+1];
     }
 
     private void loadScoreMatrix() {
@@ -134,16 +134,16 @@ public class LocalAlignmentWithAffineGapAlgorithm {
         if (i<=0 || j<=0 || BACKTRACKING[i][j] == 0) {
             return;
         }
-        if (BACKTRACKING[i][j] == 3) {
-            vi[0] -= 1;
-            wi[0] -= 1;
-            alignRecursive(i-1, j-1, vi, wi);
-        } else if (BACKTRACKING[i][j] == 2) {
+        else if (BACKTRACKING[i][j] == 2) {
             vi[0] -= 1;
             alignRecursive(i-1, j, vi, wi);
         } else if (BACKTRACKING[i][j] == 1) {
             wi[0] -= 1;
             alignRecursive(i, j-1, vi, wi);
+        } else if (BACKTRACKING[i][j] == 3) {
+            vi[0] -= 1;
+            wi[0] -= 1;
+            alignRecursive(i-1, j-1, vi, wi);
         }
     }
 
