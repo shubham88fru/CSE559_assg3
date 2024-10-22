@@ -59,14 +59,14 @@ public class LocalAlignmentWithAffineGapAlgorithm {
                   )
                 );
 
-                if (WEIGHTS_M[i][j] == 0) {
-                    BACKTRACKING[i][j] = 0;
+                if (WEIGHTS_M[i][j] == del) {
+                    BACKTRACKING[i][j] = 2;
                 } else if (WEIGHTS_M[i][j] == in) {
                     BACKTRACKING[i][j] = 1;
-                } else if (WEIGHTS_M[i][j] == del) {
-                    BACKTRACKING[i][j] = 2;
-                } else {
+                } else if (WEIGHTS_M[i][j] == mm) {
                     BACKTRACKING[i][j] = 3;
+                } else {
+                    BACKTRACKING[i][j] = 0;
                 }
 
                 if (WEIGHTS_M[i][j] > MAX_SCORE) {
