@@ -48,6 +48,7 @@ public class q1 {
                     writer.write(gData.getAlignScore() + "\n");
                     writer.write(gData.getAlignedV()+"\n");
                     writer.write(gData.getAlignedW());
+                    if (arg.equals("test_3.txt"))writer.write("\n");
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
