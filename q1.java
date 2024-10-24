@@ -48,7 +48,6 @@ public class q1 {
                     writer.write(gData.getAlignScore() + "\n");
                     writer.write(gData.getAlignedV()+"\n");
                     writer.write(gData.getAlignedW());
-                    if (idx.equals("3"))writer.write("\n");
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
