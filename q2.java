@@ -44,6 +44,9 @@ public class q2 {
                 Data lData = localAlignmentWithAffineGapAlgorithm.findLocalAlignment();
                 String fileName = "sol_q" + NUM + "_t" + idx + ".txt";
                 try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+                    System.out.println(lData.getAlignScore());
+                    System.out.println(lData.getAlignedV());
+                    System.out.println(lData.getAlignedW());
                     writer.write(lData.getAlignScore() + "\n");
                     writer.write(lData.getAlignedV() + "\n");
                     writer.write(lData.getAlignedW());
